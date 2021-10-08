@@ -35,7 +35,7 @@ def MakeAMenuMode():
     daysOfWeek = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
 
     #all the meals of a day in an immutable tuple
-    courses = ('Breakfast', 'Lunch', 'Dinner')
+    courses = {"b":'Breakfast', 'l':'Lunch', 'd':'Dinner'}
 
     #this is where we store all the data for the menu which will be delivered to the pdf making function
     menu_dict = dict()
@@ -49,13 +49,13 @@ def MakeAMenuMode():
 
         for j in courses:
 
-            print('\t', j, ':')
+            print('\t', courses[j], ':')
 
             #loop for user input
             while True:
 
                 #give the user a choice to randomize it from the database or just write it on their own
-                choice = input("\t\tpress 'r' for something random from the", j, "category to be added or press 't' to type something on your own: ")
+                choice = input("\t\tpress 'r' for something random from the "+ courses[j] + " category to be added or press 't' to type something on your own: ")
 
                 if choice == 'r':
 
@@ -67,9 +67,9 @@ def MakeAMenuMode():
                 elif choice == 't':
                     
                     #let the user type in their preference
-                    courses_dict[j] = input('add in the dish name: ')
+                    courses_dict[courses[j]] = input('add in the dish name: ')
 
-                    print('dish', courses_dict[j], 'added!')
+                    print('dish', courses_dict[courses[j]], 'added!')
                     break
                 else:
                     print('wrong input!')

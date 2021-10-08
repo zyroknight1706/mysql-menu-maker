@@ -16,9 +16,9 @@ def AppInit():
             continue
 
     print("Welcome to the menu-maker software!")
-    print('(1): Make a menu\n(2): add a dish')
-    choice = input('what would you like to do?(1 or 2): ')
     while True:
+        print('(1): Make a menu\n(2): add a dish')
+        choice = input('what would you like to do?(1 or 2): ')
         if choice == '1':
             choice2 = AppModes.MakeAMenuMode()
             if choice2 == 'exit':

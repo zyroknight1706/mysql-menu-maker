@@ -33,7 +33,8 @@ def authorize(uname, passwd):
         print('database exists!')
         print('accessing database...')
 
-        cur.execute('use dishdatabase;')    
+        cur.execute('use dishdatabase;')
+        return 'successful'   
     else:
         print('database doesn\'t exist\ncreating new database...')
     
@@ -42,18 +43,20 @@ def authorize(uname, passwd):
         print('database creation successful!')
 
         print('adding the necessary tables...')
-        cur.execute('create table dishes(dishname varchar(64), dishtype varchar(16));')
 
         print('accessing database...')
         cur.execute('use dishdatabase;')
+        cur.execute('create table dishes(dishname varchar(64), dishtype varchar(16));')
+        return 'successful'
 #end of authorize
 
 
 def AddDishInDatabase(dname, dtype):
     '''adding a dish!! EZ!!!'''
     #dish adding code in cursor
-    cur.execute('insert into dishes values('+dname+', '+dtype+');')
+    cur.execute('insert into dishes values("'+dname+'", "'+dtype+'");')
 
+    conn.commit()
     #obviously it's successful now
     #don't even know what this code does
     return 'successful'
