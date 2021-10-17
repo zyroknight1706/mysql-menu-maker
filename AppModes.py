@@ -80,7 +80,6 @@ def MakeAMenuMode():
 
         menu_dict[i] = courses_dict
     #end of the week loop
-    print(menu_dict)
     #now for the pdf magic to happen!
     print('the menu has been successfully made!')
 

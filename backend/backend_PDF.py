@@ -38,7 +38,10 @@ def createpdf(data_dict):
         pdf.ln(2*th)
 
     pdf.output('output.pdf')
+    print('Done!!')
     showpdf()
     return True
 def showpdf():
+    print('opening the new pdf on default browser for output checking.....')
     webbrowser.open_new('output.pdf')
+    print('done!!')
