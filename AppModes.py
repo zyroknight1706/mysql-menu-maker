@@ -1,4 +1,5 @@
 import backend.backend_SQL as sql
+import backend.backend_PDF as pdf
 
 def AddADishMode():
 
@@ -67,9 +68,9 @@ def MakeAMenuMode():
                 elif choice == 't':
                     
                     #let the user type in their preference
-                    courses_dict[courses[j]] = input('add in the dish name: ')
+                    courses_dict[j] = input('add in the dish name: ')
 
-                    print('dish', courses_dict[courses[j]], 'added!')
+                    print('dish', courses_dict[j], 'added!')
                     break
                 else:
                     print('wrong input!')
@@ -79,10 +80,15 @@ def MakeAMenuMode():
 
         menu_dict[i] = courses_dict
     #end of the week loop
-
+    print(menu_dict)
     #now for the pdf magic to happen!
     print('the menu has been successfully made!')
 
     print('arranging data in a table....')
     print('printing table onto pdf format....')
+
+    if pdf.createpdf(menu_dict):
+        return 'exit'
+    else:
+        return 'no work!'
 
