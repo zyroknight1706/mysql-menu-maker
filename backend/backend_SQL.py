@@ -2,9 +2,12 @@
 from logging import error
 import mysql.connector as connect
 import random
+import pickle
 
 conn = None
 cur = None
+
+#userfile = open('../user.dat', "wb")
 
 def authorize(uname, passwd):
     '''gotta check whether you're the real guy or a just a filthy hacker!!'''
@@ -34,7 +37,7 @@ def authorize(uname, passwd):
         print('accessing database...')
 
         cur.execute('use dishdatabase;')
-        return 'successful'   
+        return 'successful'
     else:
         print('database doesn\'t exist\ncreating new database...')
     
